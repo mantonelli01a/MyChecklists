@@ -7,17 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		843DFA6421F51FD600A402FE /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DFA6321F51FD600A402FE /* ChecklistItem.swift */; };
+		843DFA6621F77AC700A402FE /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DFA6521F77AC700A402FE /* AddItemViewController.swift */; };
 		8483500A21F4AD940051529F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483500921F4AD940051529F /* AppDelegate.swift */; };
-		8483500C21F4AD940051529F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483500B21F4AD940051529F /* ViewController.swift */; };
+		8483500C21F4AD940051529F /* MyChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483500B21F4AD940051529F /* MyChecklistViewController.swift */; };
 		8483500F21F4AD940051529F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8483500D21F4AD940051529F /* Main.storyboard */; };
 		8483501121F4AD950051529F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8483501021F4AD950051529F /* Assets.xcassets */; };
 		8483501421F4AD950051529F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8483501221F4AD950051529F /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		843DFA6321F51FD600A402FE /* ChecklistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
+		843DFA6521F77AC700A402FE /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		8483500621F4AD940051529F /* MyChecklists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyChecklists.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8483500921F4AD940051529F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8483500B21F4AD940051529F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8483500B21F4AD940051529F /* MyChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChecklistViewController.swift; sourceTree = "<group>"; };
 		8483500E21F4AD940051529F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8483501021F4AD950051529F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8483501321F4AD950051529F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,11 +59,13 @@
 			isa = PBXGroup;
 			children = (
 				8483500921F4AD940051529F /* AppDelegate.swift */,
-				8483500B21F4AD940051529F /* ViewController.swift */,
+				8483500B21F4AD940051529F /* MyChecklistViewController.swift */,
 				8483500D21F4AD940051529F /* Main.storyboard */,
 				8483501021F4AD950051529F /* Assets.xcassets */,
 				8483501221F4AD950051529F /* LaunchScreen.storyboard */,
 				8483501521F4AD950051529F /* Info.plist */,
+				843DFA6321F51FD600A402FE /* ChecklistItem.swift */,
+				843DFA6521F77AC700A402FE /* AddItemViewController.swift */,
 			);
 			path = MyChecklists;
 			sourceTree = "<group>";
@@ -135,7 +141,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8483500C21F4AD940051529F /* ViewController.swift in Sources */,
+				8483500C21F4AD940051529F /* MyChecklistViewController.swift in Sources */,
+				843DFA6621F77AC700A402FE /* AddItemViewController.swift in Sources */,
+				843DFA6421F51FD600A402FE /* ChecklistItem.swift in Sources */,
 				8483500A21F4AD940051529F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
