@@ -18,22 +18,42 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="ChecklistItem" id="nm3-3U-7r1">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="ChecklistItem" id="nm3-3U-7r1">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nm3-3U-7r1" id="ITw-9s-B9h">
-                                    <rect key="frame" x="0.0" y="0.0" width="335" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="307" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a26-kb-HrD">
-                                            <rect key="frame" x="8" y="11" width="349" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="√" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFg-io-GL9">
+                                            <rect key="frame" x="1" y="1" width="31" height="41.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a26-kb-HrD">
+                                            <rect key="frame" x="40" y="1" width="267" height="41.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="a26-kb-HrD" firstAttribute="leading" secondItem="dFg-io-GL9" secondAttribute="trailing" constant="8" id="7KG-ZJ-hlN"/>
+                                        <constraint firstAttribute="bottom" secondItem="a26-kb-HrD" secondAttribute="bottom" constant="1" id="PPF-XQ-Wfs"/>
+                                        <constraint firstAttribute="trailing" secondItem="a26-kb-HrD" secondAttribute="trailing" id="c3O-hc-cvL"/>
+                                        <constraint firstItem="dFg-io-GL9" firstAttribute="leading" secondItem="ITw-9s-B9h" secondAttribute="leading" constant="1" id="dh7-9c-3I9"/>
+                                        <constraint firstAttribute="bottom" secondItem="dFg-io-GL9" secondAttribute="bottom" constant="1" id="lMw-gx-oel"/>
+                                        <constraint firstAttribute="bottom" secondItem="a26-kb-HrD" secondAttribute="bottom" constant="1" id="lte-uI-Kp9"/>
+                                        <constraint firstAttribute="bottom" secondItem="a26-kb-HrD" secondAttribute="bottom" constant="11" id="qwa-oD-3Fx"/>
+                                        <constraint firstItem="a26-kb-HrD" firstAttribute="leading" secondItem="dFg-io-GL9" secondAttribute="trailing" constant="8" id="r1G-hi-J7b"/>
+                                        <constraint firstItem="dFg-io-GL9" firstAttribute="top" secondItem="ITw-9s-B9h" secondAttribute="top" constant="1" id="t2G-oc-3Bj"/>
+                                        <constraint firstItem="a26-kb-HrD" firstAttribute="top" secondItem="ITw-9s-B9h" secondAttribute="top" constant="1" id="z4O-bw-3p4"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="NNC-og-i4R" kind="show" identifier="EditItem" trigger="accessoryAction" id="EkO-DJ-LMy"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -51,12 +71,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vdf-hi-2zR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-273" y="27"/>
+            <point key="canvasLocation" x="-274.39999999999998" y="26.53673163418291"/>
         </scene>
         <!--Add Item-->
         <scene sceneID="AEe-k7-up2">
             <objects>
-                <tableViewController id="NNC-og-i4R" customClass="AddItemViewController" customModule="MyChecklists" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="NNC-og-i4R" customClass="ItemDetailViewController" customModule="MyChecklists" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="7BR-t4-Cpk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -138,4 +158,7 @@
             <point key="canvasLocation" x="-1071.2" y="25.637181409295355"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="EkO-DJ-LMy"/>
+    </inferredMetricsTieBreakers>
 </document>
