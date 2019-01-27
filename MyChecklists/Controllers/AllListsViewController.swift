@@ -8,10 +8,10 @@
 
 import UIKit
 
-class AllListsViewController: UITableViewController, ListDetailViewControllerDelegate {
+class AllListsViewController: UITableViewController, ListDetailViewControllerDelegate, UINavigationControllerDelegate {
     
     let cellIdentifier = "ChecklistCell"
-    var dataModel: DataModel!
+    var dataModel = DataModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +19,17 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         
         // Enable large titles
         navigationController?.navigationBar.prefersLargeTitles = true
-
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.delegate = self
+        // Evaluate user's last position
+        let index = dataModel.indexOfSelectedChecklist
+        if index >= 0 && index < dataModel.lists.count {
+            let checklist = dataModel.lists[index]
+            performSegue(withIdentifier: "ShowChecklist", sender: checklist)
+        }
     }
 
     // MARK: - Table view data source delegates
@@ -29,6 +39,8 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        // Store user's choice of checklist
+        dataModel.indexOfSelectedChecklist = indexPath.row
         // Update cell information
         let checklist = dataModel.lists[indexPath.row]
         cell.textLabel!.text = checklist.name
@@ -38,6 +50,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        dataModel.indexOfSelectedChecklist = indexPath.row
         let checklist = dataModel.lists[indexPath.row]
         performSegue(withIdentifier: "ShowChecklist", sender: checklist)
     }
@@ -78,6 +91,14 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
             }
         }
         navigationController?.popViewController(animated: true)
+    }
+    
+    //MARK:- Navigation Controller Delegates
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        // was the back button tapped?
+        if viewController === self {
+            dataModel.indexOfSelectedChecklist = -1
+        }
     }
     
     //MARK:- Navigation
