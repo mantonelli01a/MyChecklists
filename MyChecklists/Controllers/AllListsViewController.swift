@@ -15,7 +15,6 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         
         // Enable large titles
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -31,6 +30,11 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
             performSegue(withIdentifier: "ShowChecklist", sender: checklist)
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
 
     // MARK: - Table view data source delegates
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,14 +42,20 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        // Get cell
+        let cell: UITableViewCell!
+        if let c = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) {
+            cell = c
+        } else {
+            cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
+        }
         // Store user's choice of checklist
         dataModel.indexOfSelectedChecklist = indexPath.row
         // Update cell information
         let checklist = dataModel.lists[indexPath.row]
         cell.textLabel!.text = checklist.name
         cell.accessoryType = .detailDisclosureButton
-        
+        cell.detailTextLabel!.text = "\(checklist.countUncheckedItems()) Remaining"
         return cell
     }
     
