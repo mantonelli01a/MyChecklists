@@ -10,13 +10,13 @@ import Foundation
 
 class DataModel {
     var lists = [Checklist]()
+    
     var indexOfSelectedChecklist: Int {
         get {
             return UserDefaults.standard.integer(forKey: "ChecklistIndex")
         }
         set {
             UserDefaults.standard.set(newValue, forKey: "ChecklistIndex")
-            UserDefaults.standard.synchronize()
         }
     }
     
@@ -24,14 +24,10 @@ class DataModel {
         loadChecklists()
         registerDefaults()
         handleFirstTime()
-        
-        print("documents folder is \(documentsDirectory())")
-        print("Data file path is \(dataFilePath())")
     }
     
-    // Set the default settings in the Defaults register
     func registerDefaults() {
-        let dictionary = ["ChecklistIndex": -1, "FirstTime": true] as [String: Any]
+        let dictionary = [ "ChecklistIndex": -1, "FirstTime": true ] as [String : Any]
         UserDefaults.standard.register(defaults: dictionary)
     }
     
@@ -42,10 +38,16 @@ class DataModel {
         if firstTime {
             let checklist = Checklist(name: "List")
             lists.append(checklist)
+            
             indexOfSelectedChecklist = 0
             userDefaults.set(false, forKey: "FirstTime")
             userDefaults.synchronize()
         }
+    }
+    
+    func sortChecklists() {
+        lists.sort(by: { list1, list2 in
+            return list1.name.localizedStandardCompare(list2.name) == .orderedAscending })
     }
     
     //MARK:- Data Saving
@@ -55,7 +57,8 @@ class DataModel {
     }
     
     func dataFilePath() -> URL {
-        return documentsDirectory().appendingPathComponent("Checklists.plist")
+        return documentsDirectory().appendingPathComponent(
+            "Checklists.plist")
     }
     
     func saveChecklists() {
@@ -64,8 +67,7 @@ class DataModel {
             let data = try encoder.encode(lists)
             try data.write(to: dataFilePath(), options: Data.WritingOptions.atomic)
         } catch {
-            print("Error encoding list array: \(error.localizedDescription)")
-            
+            print("Error encoding item array: \(error.localizedDescription)")
         }
     }
     
@@ -75,9 +77,9 @@ class DataModel {
             let decoder = PropertyListDecoder()
             do {
                 lists = try decoder.decode([Checklist].self, from: data)
+                sortChecklists()
             } catch {
                 print("Error decoding list array: \(error.localizedDescription)")
-                
             }
         }
     }

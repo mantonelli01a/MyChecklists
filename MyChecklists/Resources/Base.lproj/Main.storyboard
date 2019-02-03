@@ -77,6 +77,41 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="blq-Mg-EdV">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="Rwd-eb-KB5">
+                                        <rect key="frame" x="0.0" y="115" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Rwd-eb-KB5" id="zfq-0t-Bce">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mUm-ua-h7c">
+                                                    <rect key="frame" x="304" y="4.5" width="36" height="36"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="36" id="qhf-PG-cX6"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Icon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIv-7S-5fK" userLabel="Icon">
+                                                    <rect key="frame" x="2" y="4.5" width="32.5" height="34.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="pIv-7S-5fK" firstAttribute="centerY" secondItem="zfq-0t-Bce" secondAttribute="centerY" id="J7O-W8-fCl"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="pIv-7S-5fK" secondAttribute="bottom" constant="-6" id="NmW-zo-mvy"/>
+                                                <constraint firstItem="pIv-7S-5fK" firstAttribute="leading" secondItem="zfq-0t-Bce" secondAttribute="leadingMargin" constant="-14" id="VVC-Jt-Bf7"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="mUm-ua-h7c" secondAttribute="trailing" constant="-7" id="agE-cP-7pe"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="wiy-qZ-bdj" kind="show" identifier="PickIcon" id="WxW-oH-WJY"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="GGN-Ye-9l0" id="KNv-pc-c5T"/>
@@ -102,7 +137,44 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Kq-9A-xx3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1074" y="742"/>
+            <point key="canvasLocation" x="-1074.4000000000001" y="741.67916041979015"/>
+        </scene>
+        <!--Icon Picker View Controller-->
+        <scene sceneID="PHQ-hU-oGY">
+            <objects>
+                <tableViewController id="wiy-qZ-bdj" customClass="IconPickerViewController" customModule="MyChecklists" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4mw-Dp-Auh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IconCell" textLabel="lxl-u9-oSV" style="IBUITableViewCellStyleDefault" id="KQe-n5-cHp">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KQe-n5-cHp" id="6tO-mc-9e6">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lxl-u9-oSV">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="wiy-qZ-bdj" id="SUa-9W-hZc"/>
+                            <outlet property="delegate" destination="wiy-qZ-bdj" id="cXj-c5-MAI"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vUJ-1p-A2m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-274" y="742"/>
         </scene>
         <!--Checklist-->
         <scene sceneID="NB8-eO-LzO">

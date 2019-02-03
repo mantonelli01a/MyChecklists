@@ -16,5 +16,3 @@ class ChecklistItem: NSObject, Codable {
         checked = !checked
     }
 }
-
-
